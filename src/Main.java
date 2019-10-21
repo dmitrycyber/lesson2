@@ -5,10 +5,10 @@ public class Main {
         /*System.out.println(isPalindrome("йцууцй"));
         System.out.println(Arrays.toString(makeArrayWithRandomElements(10)));
         System.out.println(Arrays.toString(makeArrayWithRandomElements2(10)));*//*
-        System.out.println(countOfElement(3, makeArrayWithRandomElements(10)));*/
-        int[] array = {4, 4, 4, 4, 4};
-        System.out.println(Arrays.toString(indexesOfElement(4, array)));
-        //System.out.println(Arrays.toString(indexesOfElement(4, makeArrayWithRandomElements(10))) );
+        System.out.println(countOfElement(3, makeArrayWithRandomElements(10)));*//*
+        System.out.println(Arrays.toString(indexesOfElement(4, makeArrayWithRandomElements(10))) );*/
+        System.out.println(averageOfArrayElements(makeArrayWithRandomElements(10)));
+
 
     }
 
@@ -64,13 +64,23 @@ public class Main {
                 if (givenArray[j] == element) {
                     indexes[i] = j;
                     i++;
-
                 }
-
             }
-
         }
         return indexes;
+    }
+
+    public static float averageOfArrayElements (int[] givenArray) {
+        System.out.println(Arrays.toString(givenArray));
+        int sumOfElements = 0;
+        int counterOfIterations = 0;
+        while (counterOfIterations < givenArray.length) {
+            sumOfElements += givenArray[counterOfIterations];
+            counterOfIterations++;
+        }
+        System.out.println(sumOfElements);
+        System.out.println(givenArray.length);
+        return (float) sumOfElements / givenArray.length;
     }
 
 }
