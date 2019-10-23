@@ -1,10 +1,32 @@
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import sun.nio.cs.ext.MacArabic;
 import java.util.Arrays;
 
 public class Main {
     public static void main (String[] args) {
-        randomSortingArray(makeArrayWithRandomElements(10));
+        //Задача1
+        //System.out.println(isPalindrome("qweewq"));
+        //Задача2
+        //System.out.println(Arrays.toString(makeArrayWithRandomElements(10)));
+        //Задача3
+        //System.out.println(Arrays.toString(indexesOfElement(3, makeArrayWithRandomElements(10))));
+        //Задача4
+        //System.out.println(Arrays.toString(swapMinAndMaxElement(makeArrayWithRandomElements(10))));
+        //Задача5
+        //System.out.println(averageOfArrayElements(makeArrayWithRandomElements(10)));
+        //Задача6
+        //System.out.println(countOfNegativeElementsInArray(makeArrayWithRandomElements2(10)));
+        //Задача7
+        //System.out.println(Arrays.toString(arrayWithoutElement(0, makeArrayWithRandomElements(10))));
+        //Задача8
+        //System.out.println(Arrays.toString(reverseArray(makeArrayWithRandomElements(10))));
+        //Задача9
+        //System.out.println(isArraySortedAsc(makeArrayWithRandomElements(10)));
+        //System.out.println(isArraySortedAsc(sortedArrayAsc(makeArrayWithRandomElements(10))));
+        //Задача10
+        //System.out.println(Arrays.toString(randomSortingArray(makeArrayWithRandomElements(10))));
+        //Задача11
+        //System.out.println(Arrays.toString(sortedArrayAsc(makeArrayWithRandomElements(10))));
+        //Задача12
+        //createTwoDemensionalArray(5);
 
     }
 
@@ -116,9 +138,10 @@ public class Main {
         int[] array = new int[amountOfElements];
         int i = 0;
         while (i < amountOfElements) {
-            array[i] = (int) (Math.random() * 100);
+            array[i] = (int) (Math.random() * -100);
             i++;
         }
+        System.out.println(Arrays.toString(array));
         return array;
     }
 
@@ -159,8 +182,8 @@ public class Main {
             sumOfElements += givenArray[counterOfIterations];
             counterOfIterations++;
         }
-        System.out.println(sumOfElements);
-        System.out.println(givenArray.length);
+        System.out.println("Сумма элементов = " + sumOfElements);
+        System.out.println("Количество элементов = " + givenArray.length);
         return (float) sumOfElements / givenArray.length;
     }
 
@@ -185,7 +208,6 @@ public class Main {
     }
 
     public static int[] swapMinAndMaxElement (int[] givenArray) {
-        System.out.println("Before");
         System.out.println(Arrays.toString(givenArray));
         int maxElement = maxElementInArray(givenArray);
         int minElement = minElementInArray(givenArray);
@@ -196,12 +218,9 @@ public class Main {
                 givenArray[i] = maxElement;
             }
             else if (givenArray[i] == maxElement) {
-                maxElement = minElement;
-                givenArray[i] = maxElement;
+                givenArray[i] = minElement;
             }
         }
-        System.out.println("After");
-        System.out.println(Arrays.toString(givenArray));
         return givenArray;
     }
 
@@ -248,33 +267,47 @@ public class Main {
 
     public static boolean isArraySortedAsc (int[] givenArray) {
         System.out.println(Arrays.toString(givenArray));
-        boolean isSortedAsc = false;
         for (int i = 0; i < givenArray.length - 1; i++) {
-            if (givenArray[i] < givenArray[i+1]) {
-                isSortedAsc = true;
-            }
-            else {
-                isSortedAsc = false;
+            if (givenArray[i] > givenArray[i+1]) {
+                return false;
             }
         }
-        return isSortedAsc;
+        return true;
     }
 
-    public static void randomSortingArray (int[] givenArray) {
+    public static int[] randomSortingArray (int[] givenArray) {
         System.out.println(Arrays.toString(givenArray));
         int[] array = new int[givenArray.length];
-        boolean[] isIndexFull = new boolean[givenArray.length];
-        isIndexFull[0] = true;
-        int randomIndex = (int) (Math.random() * givenArray.length - 1);
+        int[] isIndexFull = new int[givenArray.length];
+        int randomIndex = (int) (Math.random() * givenArray.length);
         for (int i = 0; i < givenArray.length; i++) {
-            while (isIndexFull[randomIndex] == true) {
-                randomIndex = (int) (Math.random() * givenArray.length - 1);
-                if
+            while (Arrays.binarySearch(isIndexFull, 1) != -1) {
+                if (isIndexFull[randomIndex] == 1) {
+                    randomIndex = (int) (Math.random() * givenArray.length);
+                    continue;
+                }
+                break;
             }
             array[i] = givenArray[randomIndex];
-            isIndexFull[randomIndex] = true;
+            isIndexFull[randomIndex] = 1;
         }
-        System.out.println(Arrays.toString(array));
+        return array;
+    }
+
+    public static void createTwoDemensionalArray (int lengthOfArray) {
+        int[][] twoDemensionalArray = new int[lengthOfArray][lengthOfArray];
+        for (int i = 0; i < lengthOfArray; i++) {
+            for (int j = 0; j < lengthOfArray; j++) {
+                twoDemensionalArray[i][j] = (int) (Math.random() * 100);
+            }
+        }
+        for (int i = 0; i < twoDemensionalArray.length; i++) {
+            for (int j = 0; j < twoDemensionalArray.length; j++) {
+                System.out.print(twoDemensionalArray[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
     }
 
 }
