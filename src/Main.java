@@ -27,6 +27,11 @@ public class Main {
         //System.out.println(Arrays.toString(sortedArrayAsc(makeArrayWithRandomElements(10))));
         //Задача12
         //createTwoDemensionalArray(5);
+        //Задача13
+        //System.out.println(Arrays.toString(addNewElementToEndOfArray(99, makeArrayWithRandomElements(10))));
+        //Задача14
+        //sumOfElementsInArrayUsingRecursion(makeArrayWithRandomElements(10));
+
 
     }
 
@@ -309,5 +314,33 @@ public class Main {
         }
 
     }
+
+    public static int[] addNewElementToEndOfArray (int element, int[] givenArray) {
+        System.out.println(Arrays.toString(givenArray));
+        int[] newArrayWithElement = new int[givenArray.length + 1];
+        for (int i = 0; i < givenArray.length; i++) {
+            newArrayWithElement[i] = givenArray[i];
+        }
+        newArrayWithElement[newArrayWithElement.length-1] = element;
+        return newArrayWithElement;
+    }
+
+    /*public static int sumOfElementsInArrayUsingRecursion(int[] givenArray) {
+        int counter = 0;
+        counter += incrementInt(counter);
+        int sum = 0;
+        int sum = sumOfElementsInArrayUsingRecursion(givenArray) + givenArray[counter];
+        if (counter == givenArray.length-1){
+            System.out.println(sum);
+            return sum;
+        }
+        return sumOfElementsInArrayUsingRecursion(givenArray) + givenArray[counter];
+    }
+
+    public static int incrementInt(int counter) {
+        counter++;
+        return counter;
+    }*/
+
 
 }
