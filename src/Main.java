@@ -30,7 +30,7 @@ public class Main {
         //Задача13
         //System.out.println(Arrays.toString(addNewElementToEndOfArray(99, makeArrayWithRandomElements(10))));
         //Задача14
-        //sumOfElementsInArrayUsingRecursion(makeArrayWithRandomElements(10));
+        //System.out.println(sumOfElementsInArrayUsingRecursion(makeArrayWithRandomElements(1)));
 
 
     }
@@ -325,22 +325,14 @@ public class Main {
         return newArrayWithElement;
     }
 
-    /*public static int sumOfElementsInArrayUsingRecursion(int[] givenArray) {
-        int counter = 0;
-        counter += incrementInt(counter);
-        int sum = 0;
-        int sum = sumOfElementsInArrayUsingRecursion(givenArray) + givenArray[counter];
-        if (counter == givenArray.length-1){
-            System.out.println(sum);
-            return sum;
+    public static int sumOfElementsInArrayUsingRecursion(int[] givenArray) {
+        if (givenArray.length == 0) {
+            return 0;
         }
-        return sumOfElementsInArrayUsingRecursion(givenArray) + givenArray[counter];
+
+        return givenArray[0] + sumOfElementsInArrayUsingRecursion(arrayWithoutElement(0, givenArray));
     }
 
-    public static int incrementInt(int counter) {
-        counter++;
-        return counter;
-    }*/
 
 
 }
